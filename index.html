@@ -1332,22 +1332,22 @@
                 </div>
             </div>
             <div class="contact-form">
-                <form id="auditForm">
-                    <div class="form-group">
-                        <label for="project">Project Name</label>
-                        <input type="text" id="project" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Project Details</label>
-                        <textarea id="message" class="form-control" required></textarea>
-                    </div>
-                    <button type="submit" class="form-submit">Request Audit</button>
-                </form>
-            </div>
+    <form id="auditForm" action="https://formspree.io/f/mwpqzvge" method="POST">
+        <div class="form-group">
+            <label for="project">Project Name</label>
+            <input type="text" name="project" id="project" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Project Details</label>
+            <textarea name="message" id="message" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Request Audit</button>
+    </form>
+</div>
         </div>
     </section>
 
@@ -1518,12 +1518,14 @@
         }
 
         // Form submission
-        const form = document.getElementById('auditForm');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Audit request submitted! We\'ll get back to you within 24 hours.');
-            form.reset();
-        });
+const form = document.getElementById('auditForm');
+form.addEventListener('submit', (e) => {
+    // Let Formspree handle the submission
+    // Just add visual feedback
+    const button = form.querySelector('.form-submit');
+    button.textContent = 'Sending...';
+    button.disabled = true;
+});
     </script>
 </body>
 </html>
