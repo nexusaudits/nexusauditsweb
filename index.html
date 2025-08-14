@@ -145,42 +145,25 @@
             z-index: 2;
         }
 
-        .logo-mark {
-            width: 45px;
-            height: 45px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        /* Logo Container */
+.logo-container {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .logo-hex {
-            width: 100%;
-            height: 100%;
-            background: var(--accent);
-            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: hex-rotate 10s linear infinite;
-        }
-
-        @keyframes hex-rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .logo-hex span {
-            color: var(--bg-primary);
-            font-weight: 900;
-            font-size: 1.5rem;
-            animation: hex-counter-rotate 10s linear infinite;
-        }
-
-        @keyframes hex-counter-rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(-360deg); }
-        }
+/* Main Logo Image */
+.logo-image {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 3;
+    filter: drop-shadow(0 0 5px rgba(184, 255, 0, 0.3));
+    transition: all 0.3s ease;
+}
 
         .nav-links {
             display: flex;
@@ -1338,13 +1321,18 @@
     <nav id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <div class="logo-mark">
-                    <div class="logo-hex">
-                        <span>N</span>
-                    </div>
-                </div>
-                <span>NEXUS AUDITS</span>
-            </a>
+    <div class="logo-container">
+        <img src="logo.png" alt="N" class="logo-image">
+        <div class="logo-border spinning"></div>
+        <div class="logo-glow"></div>
+        <div class="logo-particles">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <span>NEXUS AUDITS</span>
+</a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#process">Process</a></li>
