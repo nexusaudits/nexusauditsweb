@@ -1859,6 +1859,33 @@ function showSuccessAnimation() {
     }, 5000);
 }
 
+        // Create particle explosion effect
+function createParticles() {
+    const particleCount = 30;
+    const colors = ['#B8FF00', '#8BC34A', '#689F38'];
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = '50%';
+        particle.style.top = '50%';
+        particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+        particle.style.width = Math.random() * 8 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.animation = `particle-float ${Math.random() * 2 + 1}s ease-out forwards`;
+        particle.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg)`;
+        
+        document.querySelector('.success-hex').appendChild(particle);
+        
+        setTimeout(() => particle.remove(), 2000);
+    }
+}
+
+// Call it in showSuccessAnimation after showing the overlay
+createParticles();
+
+        
+
 // Error Animation Function
 function showErrorAnimation() {
     const overlay = document.createElement('div');
