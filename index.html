@@ -19,7 +19,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none;
+            cursor: auto;
         }
 
         :root {
@@ -35,50 +35,17 @@
             --border: #222222;
         }
 
-        /* Custom Cursor */
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--accent);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: all 0.1s ease;
-            transform: translate(-50%, -50%);
-            mix-blend-mode: difference;
-        }
-
-        .cursor-follower {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(184, 255, 0, 0.1);
-            position: fixed;
-            pointer-events: none;
-            z-index: 9998;
-            transition: all 0.3s ease;
-            transform: translate(-50%, -50%);
-        }
-
-        .cursor.hover {
-            transform: translate(-50%, -50%) scale(2);
-            background: var(--accent);
-            mix-blend-mode: normal;
-        }
-
+        
         body {
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             overflow-x: hidden;
             line-height: 1.6;
-            cursor: none;
+            cursor: auto;
         }
 
-        a, button {
-            cursor: none;
-        }
+        
 
         /* Noise texture overlay */
         body::before {
@@ -1613,27 +1580,7 @@
             }, 1500);
         });
 
-        // Custom cursor
-        const cursor = document.querySelector('.cursor');
-        const cursorFollower = document.querySelector('.cursor-follower');
-        
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            
-            setTimeout(() => {
-                cursorFollower.style.left = e.clientX + 'px';
-                cursorFollower.style.top = e.clientY + 'px';
-            }, 100);
-        });
-
-        // Cursor hover effect
-        const hoverElements = document.querySelectorAll('a, button, .btn, .service-card, .contact-method');
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-        });
-
+    
         // Matrix rain effect
         const canvas = document.getElementById('matrix-bg');
         const ctx = canvas.getContext('2d');
